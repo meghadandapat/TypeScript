@@ -81,3 +81,61 @@ random_array.push(true);
 var user;
 user = { name: 'yoshi', age: 25 };
 user = { name: 25, age: 'yoshi' };
+
+//TS infers the type function
+// let greet = () => {
+//     console.log("hello")
+// }
+//explicit
+var greet;
+greet = function () {
+    console.log();
+};
+//parameters
+var sub = function (a, b) {
+    console.log(a - b);
+};
+sub(25, 3);
+// sub('5', '10') is inValid since argument is string type
+//parameter with default value and union type
+var add = function (a, b) {
+    if (b === void 0) { b = 10; }
+    console.log(a, b);
+};
+add(5);
+//In Js no. of parameter and arguments might not be equal to one another but in TS we have to specify this behaviour using ?
+var display = function (a, b) {
+    console.log(a, b);
+};
+//These are valid function calls
+display(4);
+display(4, 'hello');
+display(4, 5);
+//NOTE: Parameter with default value cannot be optional and vice versa
+//optional and default para must be defined after required para
+//return in Functions
+var product = function (a, b) {
+    return a * b;
+};
+var result = product(5, 4);
+//result will be automatically infer the return Type of function. We cannot change its type later on 
+//explicitly define type of return in Function
+var minus = function (a, b) {
+    return a - b;
+};
+var marks;
+var firstUser;
+//******Function Signatures*******//
+var calc;
+calc = function (numOne, numTwo, action) {
+    if (action === 'add') {
+        return numOne + numTwo;
+    }
+    else {
+        return numOne - numTwo;
+    }
+};
+var logDetails;
+logDetails = function (books) {
+    console.log(books.name, books.price);
+};
