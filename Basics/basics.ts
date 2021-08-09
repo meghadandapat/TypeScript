@@ -105,4 +105,81 @@ let user: { name: any, age: any };
 user = { name: 'yoshi', age: 25 };
 user = { name: 25, age: 'yoshi' };
 
+//TS infers the type function
+// let greet = () => {
+//     console.log("hello")
+// }
 
+//explicit
+let greet: Function
+greet = () => {
+    console.log()
+}
+//parameters
+const sub = (a: number, b:number) => {
+    console.log(a-b);
+    
+}
+sub(25, 3);
+// sub('5', '10') is inValid since argument is string type
+
+//parameter with default value and union type
+const add = (a: number, b:number | string = 10) => {
+    console.log(a, b);
+    
+}
+add(5)
+
+//In Js no. of parameter and arguments might not be equal to one another but in TS we have to specify this behaviour using ?
+const display = (a: number, b?:number | string ) => {
+    console.log(a, b);
+    
+}
+//These are valid function calls
+display(4)
+display(4, 'hello')
+display(4, 5)
+
+//NOTE: Parameter with default value cannot be optional and vice versa
+//optional and default para must be defined after required para
+
+//return in Functions
+const product = (a: number, b: number) => {
+    return a * b;
+}
+let result = product(5,4)
+//result will be automatically infer the return Type of function. We cannot change its type later on 
+
+//explicitly define type of return in Function
+const minus = (a: number, b: number): number => {
+    return a - b;
+}
+//when there is no return, then function returns void in TS which implies complete lack of value. 
+
+//******Type Alias*******
+type StringOrNum = string | number;
+let marks: StringOrNum;
+
+type UserObj = {
+    uid: StringOrNum,
+    name: string,
+    isLoggedIn: boolean
+}
+let firstUser: UserObj;
+
+//******Function Signatures*******//
+let calc: (a: number, b: number, c: string)=>number;
+calc = (numOne: number, numTwo: number, action: string) => {
+    if (action === 'add') {
+        return numOne + numTwo;
+    }
+    else {
+        return numOne - numTwo;
+    }
+
+}
+
+let logDetails: (obj: { name: string, price: number }) => void;
+logDetails = (books: { name: string, price: number }) => {
+     console.log(books.name,books.price )
+ }
