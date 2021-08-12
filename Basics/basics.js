@@ -139,3 +139,18 @@ var logDetails;
 logDetails = function (books) {
     console.log(books.name, books.price);
 };
+//***Interfaces(without classes)***//
+const me = {
+    name: 'megha',
+    age: 20,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        return amount;
+    }
+};
+const greetPerson = (person) => {
+    console.log('hello', person.name);
+};
+greetPerson(me);
