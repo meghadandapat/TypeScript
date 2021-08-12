@@ -183,3 +183,29 @@ let logDetails: (obj: { name: string, price: number }) => void;
 logDetails = (books: { name: string, price: number }) => {
      console.log(books.name,books.price )
  }
+
+
+//****Interfaces(without classes)******//
+//defines the structure 
+
+interface IsPerson{
+    name: string;
+    age: number;
+    speak(a: string): void;
+    spend(a:number): number
+}
+const me: IsPerson ={
+    name: 'megha',
+    age: 20,
+    speak(text: string): void{
+        console.log(text)
+    },
+    spend(amount: number): number{
+        return amount
+    }
+}
+
+const greetPerson = (person: IsPerson) => {
+    console.log('hello', person.name)
+}
+greetPerson(me);
