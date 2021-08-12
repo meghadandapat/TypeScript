@@ -1,0 +1,26 @@
+import { HasFormatter } from '../interfaces/HasFormatter.js'
+
+//classes
+
+//default behaviours of classes is public
+//properties can be accessed and modified anywhere
+//private properties can be accessed inside the class and outside the class using the methods of class
+//readonly means can be accessed  but not modified 
+
+export class Invoice implements HasFormatter{
+    readonly client: string;
+    private details: string;
+    public amount: number;
+
+    constructor(
+        c: string, d: string, a: number) {
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+ }
+
+    format(){
+        return `${this.client} owes ${this.amount} for ${this.details}`
+    }
+}
+
